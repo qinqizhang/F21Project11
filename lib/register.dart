@@ -49,6 +49,7 @@ class _RegisterState extends State<Register> {
               children: <Widget>[
                 Material(
                     child: TextFormField(
+                  validator: (val) => val.isEmpty ? 'Enter an email' : null,
                   onChanged: (val) {
                     setState(() => email = val);
                   },
@@ -59,6 +60,8 @@ class _RegisterState extends State<Register> {
                 )),
                 Material(
                     child: TextFormField(
+                  validator: (val) =>
+                      val.length < 6 ? 'Enter a password 6+ chars long' : null,
                   onChanged: (val) {
                     setState(() => password = val);
                   },

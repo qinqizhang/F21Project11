@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:video_player/video_player.dart';
 
+import 'register.dart';
+
 void main() => runApp(BackgroundVideo());
 
 class MyApp extends StatelessWidget {
@@ -132,7 +134,7 @@ class LoginWidget extends StatelessWidget {
           ),
           padding: EdgeInsets.all(16),
           width: 300,
-          height: 200,
+          height: 250,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
@@ -178,6 +180,21 @@ class LoginWidget extends StatelessWidget {
                 },
                 child: const Text('About Us'),
               ),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(
+                    fontSize: 15,
+                    color: Color(0xff00539f),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Register()),
+                  );
+                },
+                child: const Text('Register'),
+              )
             ],
           ),
         ),
