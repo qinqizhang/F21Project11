@@ -28,6 +28,8 @@ dependencies:
   # TODO 1: Added video player dependency
   # Video Player Dependency: https://pub.dev/packages/video_player
   video_player: ^0.10.5+2
+  firebase_auth: ^0.15.4
+  cloud_firestore: ^0.13.7
 
 dev_dependencies:
   flutter_test:

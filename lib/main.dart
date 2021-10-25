@@ -31,6 +31,11 @@ class BackgroundVideo extends StatefulWidget {
   _BackgroundVideoState createState() => _BackgroundVideoState();
 }
 
+class SignIn extends StatefulWidget {
+  @override
+  _LoginUser createState() => _LoginUser();
+}
+
 class _BackgroundVideoState extends State<BackgroundVideo> {
   // TODO 4: Create a VideoPlayerController object.
   VideoPlayerController _controller;
@@ -153,7 +158,7 @@ class LoginWidget extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginUser()),
+                      MaterialPageRoute(builder: (context) => SignIn()),
                     );
                   },
                 ),
@@ -181,10 +186,10 @@ class LoginWidget extends StatelessWidget {
   }
 }
 
-class LoginUser extends StatelessWidget {
-  const LoginUser({
-    Key key,
-  }) : super(key: key);
+class _LoginUser extends State<SignIn> {
+  String email = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -218,14 +223,20 @@ class LoginUser extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Material(
-                  child: TextField(
+                  child: TextFormField(
+                onChanged: (val) {
+                  setState(() => email = val);
+                },
                 cursorColor: Color(0xffb55e28),
                 decoration: InputDecoration(
                   hintText: 'Username',
                 ),
               )),
               Material(
-                  child: TextField(
+                  child: TextFormField(
+                onChanged: (val) {
+                  setState(() => password = val);
+                },
                 cursorColor: Color(0xffb55e28),
                 decoration: InputDecoration(
                   hintText: 'Password',
@@ -239,7 +250,10 @@ class LoginUser extends StatelessWidget {
                     'Login',
                     style: TextStyle(color: Color(0xffffd544), fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    print(email);
+                    print(password);
+                  },
                 ),
               ),
             ],
